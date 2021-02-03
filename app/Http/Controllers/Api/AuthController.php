@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+class AuthController extends Controller
+{
+    public function login(Request $req)
+    {
+       $creds=$req->only(['email','password']);
+       if(!$token=auth()->attempt($creds)){
+            return response()->json([
+                'success'=>false
+            ]);
+       }
+       return response()->json([
+        'success'=>true,
+        'token'=>$token,
+        'user'=>Auth::user()
+       ]);
+    }
+}
