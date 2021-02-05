@@ -15,6 +15,9 @@ We will also use .Jwt for authorization of our api and volley library for Rest a
 7). make Register  function
 		encrypt password before saving it in database
 8). make logout function
-	
+
+9). make model and migration and controller/ Post/Like/Comment
+		[cmd code : php artisan make:model Post -m]
+		[cmd code : php artisan make:controller Api/PostController]
 
 
